@@ -1,0 +1,8 @@
+id,question_text,option_yes,option_no,option_na
+1,Has the correct greeting been used?,Yes,No,
+2,Has the name and address been confirmed?,Yes,No,
+3,Was positive language used?,Yes,No,
+4,If applicable were customer vulnerabilities identified and registered?,Yes,No,N/A
+5,If applicable was the correct job raised?,Yes,No,N/A
+6,If applicable was SMS confirmation of the appointment sent?,Yes,No,N/A
+7,Has the call been correctly logged?,Yes,No,
