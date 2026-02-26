@@ -9,7 +9,7 @@ class QualityCriterion:
         self.id = q_id
         self.question_text = text
         # Creates a list of options, ignoring N/A where not needed.
-        self.options = [opt for opt in [opt_yes, opt_no, opt_na]]
+        self.options = [opt for opt in [opt_yes, opt_no, opt_na] if opt]
     
     def calculate_score(self, user_input: str) -> dict:
         """
