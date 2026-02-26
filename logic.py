@@ -1,5 +1,5 @@
-import csv
-from datetime import datetime
+import csv # Used to read and write to the local file system.
+from datetime import datetime # Used to generate timestamps for the audit log.
 
 class QualityCriterion:
     """
