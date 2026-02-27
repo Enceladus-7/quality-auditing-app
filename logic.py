@@ -29,7 +29,6 @@ class QualityController:
     """
     def __init__(self):
         self.quality_criteria = []
-        self.total_score = 0
     
     def load_criteria_from_csv(self,filepath: str) -> None:
         """
