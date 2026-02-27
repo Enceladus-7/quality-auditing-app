@@ -189,4 +189,87 @@ Specific attention was given to validating the application's state management an
 
 ## Documentation
 
+### User Documentation
+
+This section provides instructions for the Operations Performance Team and Quality Advisors who would use the application to conduct and log call audits. 
+
+**Step 1: Access the Application**
+The application is hosted online and requires no local installation. Click the following link to launch the app in your web browser: 
+[Quality Auditing App - Live Deployment](https://quality-auditing-app.streamlit.app/)
+
+**Step 2: Initial Setup**
+Upon opening the application, you will be presented with the Setup screen. Enter the name of the Advisor being audited and the name of the Auditor conducting the review. Both text fields are mandatory. Click the **Start** button to proceed.
+
+**Step 3: Complete the Audit Form**
+The application will dynamically generate the quality criteria for the audit. Review the customer call and select the appropriate response (Yes, No, or N/A) for each question using the buttons provided.
+
+**Step 4: Calculate the Score**
+Once all questions have been evaluated, scroll to the bottom of the form and click the **Calculate Final Score** button. 
+
+**Step 5: Review Results**
+The application will transition to the Results screen, displaying the final percentage score alongside a PASS or FAIL metric. A blue notification box will appear to confirm that the audit data has been successfully and securely appended to the permanent CSV log. 
+
+**Step 6: Start a New Audit**
+To log another review, click the **New Audit** button. This will clear the previous entries and safely return you to the initial Setup screen without overwriting any saved data.
+
+![Figure 3: User guide showing the initial Setup screen of the Quality Auditing App](images/front_page.png)
+
+**Figure 3:** User guide showing the initial Setup screen where the Advisor and Auditor names are entered to begin an audit.
+
+### Technical Documentation
+
+This section provides instructions for developers who wish to clone, install, and run the Quality Auditing App and its automated test suite on their local machines.
+
+**Table 4: Project Structure Overview**
+| File Name | Description |
+| :--- | :--- |
+| `app.py` | The main entry point for the Streamlit frontend. It handles the Graphical User Interface, session state management, and user inputs. |
+| `logic.py` | The backend processing module. It contains the Object-Oriented `QualityCriterion` and `QualityController` classes, pure functions for scoring, and CSV reading/writing logic. |
+| `criteria.csv` | The database file containing the raw audit questions and options. |
+| `requirements.txt` | The list of Python library dependencies required to run the application. |
+
+**Step 1: Clone the Repository**
+First, clone the project repository from GitHub to your local machine and navigate into the project directory
+```bash
+git clone https://github.com/Enceladus-7/quality-auditing-app.git
+cd Quality-Auditing-App
+```
+
+**Step 2: Create and Activate a Virtual Environment**
+It is recommended to isolate the project's dependencies in a virtual environment.
+
+* **On macOS & Linux:**
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+* **On Windows:**
+```bash
+python -m venv venv
+venv\Scripts\Activate.ps1
+```
+
+**Step 3: Install Dependencies**
+With the virtual environment activated, install the required packages (such as `streamlit` and `pytest`) using the provided `requirements.txt` file:
+```bash
+pip install -r requirements.txt
+```
+
+**Step 4: Run the Application Locally**
+To launch the Streamlit server and open the application in your default web browser, execute the following command:
+```bash
+streamlit run app.py
+```
+
+To stop the server and return to the terminal, press `Ctrl + C`.
+
+**Step 5: Run the Automated Test Suite**
+The project includes automated unit tests to verify the core data logic within the pure functions. To run these tests locally execute:
+```bash
+pytest
+```
+
+This will scan the directory for test files, execute them, and output a pass/fail report directly in the terminal.
+
 ## Evaluation
